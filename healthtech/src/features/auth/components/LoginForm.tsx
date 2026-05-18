@@ -9,17 +9,17 @@ import { loginSchema, type LoginFormData } from "../types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import { useRouter } from "next/navigation";
+import { authService } from "../services";
+import { useAuthStore } from "@/store/authStore";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+const setAuth = useAuthStore((state) => state.setAuth);
+
 
   const {
     register,
@@ -30,16 +30,17 @@ export function LoginForm() {
   });
 
   const onSubmit = async (data: LoginFormData) => {
-    setIsLoading(true);
-    try {
-      // TODO: connect to auth service
-      console.log("Login data:", data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  setIsLoading(true);
+  try {
+    const response = await authService.login(data);
+    setAuth(response.user, response.accessToken);
+    router.push("/dashboard");
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <Card className="w-full max-w-md shadow-none border-0 lg:border lg:shadow-sm">
