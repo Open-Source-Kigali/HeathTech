@@ -22,15 +22,22 @@ Thank you for your interest in contributing! This guide will help you get starte
 ```bash
    git clone https://github.com/YOUR_USERNAME/healthtech.git
 ```
-3. **Install dependencies**
+3. **Set upstream remote**
 ```bash
-   npm install
+   git remote add upstream https://github.com/Open-Source-Kigali/HeathTech.git
 ```
-4. **Create a branch** from `main`
+4. **Always branch from `development`**
 ```bash
+   git checkout development
+   git pull upstream development
    git checkout -b feature/your-feature-name
 ```
-
+5. **Make your changes**
+6. **Push to your fork**
+```bash
+   git push origin feature/your-feature-name
+```
+7. **Open a Pull Request** targeting `development` — never `main`
 ---
 
 ## How to Contribute
@@ -54,6 +61,8 @@ fix/your-bug-name             → bug fixes
 docs/what-you-updated         → documentation
 refactor/what-you-refactored  → code refactoring
 ui/component-name             → UI improvements
+
+> ⚠️ Always create your branch from `development`, not `main`.
 
 ---
 
