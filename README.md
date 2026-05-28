@@ -84,23 +84,24 @@ http://localhost:3000
 ---
 
 ## Project Structure
-src/
-├── app/                    # Next.js routes (pages)
-│   ├── (auth)/             # Auth pages — login, register
-│   └── (dashboard)/        # Dashboard pages
-├── components/
-│   ├── layout/             # Sidebar, TopHeader
-│   └── shared/             # Reusable components
-├── features/               # Feature modules
-│   ├── auth/               # Auth forms, services, types
-│   ├── patients/           # Patient components, services, types
-│   ├── appointments/       # Appointment components, services, types
-│   └── laboratory/         # Lab components, services, types
-├── hooks/                  # Custom React hooks
-├── lib/                    # Axios config, mock data
-├── store/                  # Zustand global state
-├── types/                  # Global TypeScript types
-└── utils/                  # Helper functions
+
+| Folder | Description |
+|---|---|
+| `src/app/(auth)/` | Login and register pages |
+| `src/app/(dashboard)/` | All dashboard pages |
+| `src/components/layout/` | Sidebar and top header |
+| `src/components/shared/` | Reusable components used across features |
+| `src/features/auth/` | Auth forms, services and types |
+| `src/features/patients/` | Patient components, services and types |
+| `src/features/appointments/` | Appointment components, services and types |
+| `src/features/laboratory/` | Lab components, services and types |
+| `src/hooks/` | Custom React hooks |
+| `src/lib/` | Axios instance and mock data |
+| `src/store/` | Zustand global state |
+| `src/types/` | Global TypeScript interfaces |
+| `src/utils/` | Helper functions |
+
+> Each feature in `src/features/` follows the same structure: `components/`, `hooks/`, `services/`, `types/`, and `index.ts`. Pick a feature folder and everything you need is inside it.
 
 
 ---
