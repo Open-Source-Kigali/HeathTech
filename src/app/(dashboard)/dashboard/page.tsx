@@ -359,7 +359,7 @@ export default function DashboardPage() {
         {/* Quick Stats */}
         <Card className="border-0 shadow-sm">
           <CardHeader className="pb-3">
-            <CardTitle className="text-sm font-semibold">Quick Stats</CardTitle>
+            <CardTitle className="text-sm font-semibold">Quick Stats for the doctor</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col gap-3">
             {[
